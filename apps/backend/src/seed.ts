@@ -9,30 +9,6 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/blogdb
 
 const dummyData = [
   {
-    title: 'The Impact of Technology on the Workplace: How Technology is Changing',
-    slug: 'impact-of-technology-workplace',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    content: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>',
-    author: 'Jason Francisco',
-    category: 'Technology',
-    tags: ['Tech', 'Workplace', 'Future'],
-    readTime: 8,
-    imageUrl: 'https://picsum.photos/seed/impact-of-technology-workplace/1200/600',
-    createdAt: new Date('2026-07-07T10:00:00Z'),
-  },
-  {
-    title: 'Industrial Elegance: The Evolution of Matte Finishes',
-    slug: 'industrial-elegance-matte-finishes',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    content: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>',
-    author: 'Julian Vane',
-    category: 'Design',
-    tags: ['Design', 'Industrial', 'Trends'],
-    readTime: 5,
-    imageUrl: 'https://picsum.photos/seed/industrial-elegance-matte-finishes/1200/600',
-    createdAt: new Date('2026-07-06T14:30:00Z'),
-  },
-  {
     title: 'Hyperliquid’s UK warning reveals the regulatory test behind its Wall Street push',
     slug: 'hyperliquid-uk-warning-regulatory-test',
     description: 'Hyperliquid’s rapid growth has drawn a warning from Britain’s financial regulator, adding a consumer-protection concern to a platform increasingly popular with traders.',
