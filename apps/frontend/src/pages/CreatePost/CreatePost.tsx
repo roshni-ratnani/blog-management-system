@@ -373,6 +373,8 @@ function CreatePost() {
   const [tags, setTags] = useState<string[]>([]);
   const [imageBase64, setImageBase64] = useState<string>('');
   const fileInputRef = useRef<HTMLInputElement>(null);
+ 
+  const isPublishing = useRef(false);
 
   /**
    * Converts the selected image file to a Base64 string.
@@ -425,6 +427,8 @@ function CreatePost() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!title || !description || !content || !author) return;
+    
+    isPublishing.current = true;
     submitPost({ title, description, content, author, category, tags, imageUrl: imageBase64 || undefined });
   };
 
@@ -434,18 +438,18 @@ function CreatePost() {
   // Block client-side navigation
   const blocker = useBlocker(
     ({ currentLocation, nextLocation }) =>
-      isDirty && currentLocation.pathname !== nextLocation.pathname
+      isDirty && !isPublishing.current && currentLocation.pathname !== nextLocation.pathname
   );
 
-  // Block browser refresh/close
+  // Block browser refresh/close 
   useEffect(() => {
     const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-      if (isDirty) {
+      if (isDirty && !isPublishing.current) {
         e.preventDefault();
-        e.returnValue = ''; // Required for Chrome/Firefox to show native prompt
+        e.returnValue = '';
       }
     };
-    
+
     window.addEventListener('beforeunload', handleBeforeUnload);
     return () => window.removeEventListener('beforeunload', handleBeforeUnload);
   }, [isDirty]);
